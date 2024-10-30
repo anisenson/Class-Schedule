@@ -57,7 +57,7 @@ $(document).ready(function () {
                             </tr>
                         `);//adding lunch to the list
                     } else {
-                        // Find the period data for the current period
+                        // Find the information for the current period
                         const periodData = schedule.find(function (item) {
                             return item.period === period && item.days.includes(selectedDay);
                         });
