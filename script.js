@@ -78,7 +78,7 @@ $(document).ready(function () {
                 });
             },
             error: function () {
-                console.log("Connection Error"); // Log an error if the request fails
+                alert("Connection Error"); //Error if file doetsnt work
             },
         });
     });
