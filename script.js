@@ -2,7 +2,6 @@ $(document).ready(function () {
     // Button to submit what day it is
     const btn = $("#submitDay");
 
-
     // Bell Times
     const bellSchedule = {
         1: { start: '8:24 AM', end: '9:31 AM' },
@@ -12,7 +11,6 @@ $(document).ready(function () {
         4: { start: '12:41 PM', end: '1:48 PM' },
         5: { start: '1:53 PM', end: '3:00 PM' }
     };
-
 
     // This shows what periods meet on each day (A to G)
     const dailyPeriods = {
@@ -24,7 +22,6 @@ $(document).ready(function () {
         F: [4, 1, 2, "Lunch", 6, 7],
         G: [3, 4, 7, "Lunch", 5, 6]
     };
-
 
     // When the button is clicked
     btn.on("click", function () {
@@ -41,9 +38,7 @@ $(document).ready(function () {
                 const daySchedule = dailyPeriods[selectedDay]; // Get the schedule for the selected day
                 $('#scheduleList').empty(); // Clear the list before adding new items
 
-
                 let bellIndex = 1; // Start with the first bell time
-
 
                 // Go through each period in the day's schedule
                 daySchedule.forEach(function (period) {
@@ -83,8 +78,6 @@ $(document).ready(function () {
             }
         });
     });
-
-
 
     //Chatgpt
     function highlightCurrentClass() {
