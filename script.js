@@ -64,7 +64,7 @@ $(document).ready(function () {
                         if (periodData) {
                             const time = bellSchedule[bellIndex]; // Get the bell time for this period
                             $('#scheduleList').append(`
-                                <tr>
+                                <tr class="schedule-row" data-start="${time.start}" data-end="${time.end}">
                                     <td>${period}</td>
                                     <td>${time.start} - ${time.end}</td>
                                     <td>${periodData.class}</td>
@@ -76,13 +76,31 @@ $(document).ready(function () {
                         }
                     }
                 });
+                highlightCurrentClass(); // calls the highlighted row function
             },
             error: function () {
-                alert("Connection Error"); //Error if file doetsnt work
-            },
+                alert("Connection Error");
+            }
         });
     });
+
+
+
+    //Chatgpt
+    function highlightCurrentClass() {
+        const currentTime = new Date(); //built in javascript function, will give u the date and time
+        $(".schedule-row").each(function () {
+            const startTime = parseTime($(this).data("start")); //converts the start into a 12 hr format
+            const endTime = parseTime($(this).data("end")); //converts the end into a 12 hr format
+            if (currentTime >= startTime && currentTime <= endTime) { //when the current time is during / in between the time of the period, it will add the class to highlight the row  
+                $(this).addClass("table-warning");
+            }
+        });
+    }
+
+    function parseTime(timeString) { //Formula to convert time idk this is very complicated
+        const [hour, minute] = timeString.match(/\d+/g).map(Number);
+        const isPM = timeString.includes("PM") && hour !== 12;
+        return new Date().setHours(isPM ? hour + 12 : hour, minute, 0);
+    }
 });
-
-
-
