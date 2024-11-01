@@ -86,7 +86,7 @@ $(document).ready(function () {
             const startTime = parseTime($(this).data("start")); //converts the start into a 12 hr format
             const endTime = parseTime($(this).data("end")); //converts the end into a 12 hr format
             if (currentTime >= startTime && currentTime <= endTime) { //when the current time is during / in between the time of the period, it will add the class to highlight the row  
-                $(this).addClass("table-warning");
+                $(this).addClass("table-background");
             }
         });
     }
